@@ -1,0 +1,9 @@
+[
+  {
+    "id": "gcc9-diagnostics",
+    "file": "CMakeLists.txt",
+    "reason": "GCC 9 lacks two warning options and diagnoses integer promotions differently. Preserve conversion warnings without making them fatal only on GCC < 10; no runtime source changes.",
+    "before": "set(CMAKE_POSITION_INDEPENDENT_CODE ON)",
+    "after": "# vsomeip-build-kit: retain GCC 9 diagnostics without rejecting integer promotions.\nif(CMAKE_CXX_COMPILER_ID STREQUAL \"GNU\" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 10)\n    string(REPLACE \"-Wno-tsan\" \"\" CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS}\")\n    string(REPLACE \"-Wno-inconsistent-missing-override\" \"\" CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS}\")\n    string(APPEND CMAKE_CXX_FLAGS \" -Wno-error=conversion\")\nendif()\nset(CMAKE_POSITION_INDEPENDENT_CODE ON)"
+  }
+]

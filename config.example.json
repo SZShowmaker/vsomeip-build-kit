@@ -1,0 +1,4 @@
+{
+  "native": {"cc": "gcc-11", "cxx": "g++-11"},
+  "aarch64-linux": {"toolchain_root": "/opt/toolchains/gcc-arm-9.2", "compiler_prefix": "aarch64-none-linux-gnu"}
+}

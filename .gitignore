@@ -1,0 +1,14 @@
+/out/
+/.cache/
+/local/
+/config.local.json
+/config.*.local.json
+/CMakeUserPresets.json
+/.vs/
+/.env
+/.env.*
+!/.env.example
+__pycache__/
+*.pyc
+.vscode/
+.idea/
